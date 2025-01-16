@@ -1,0 +1,23 @@
+{% extends 'plantilla.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Listado de Fincas</h2>
+    <ul>
+        {% for finca in fincas %}
+            <li>
+                <strong>{{ finca.nombre }}</strong><br>
+                Dirección: {{ finca.direccion }}<br>
+                Tamaño: {{ finca.tamano }} hectáreas<br>
+                Propietario: {{ finca.propietario }}<br>
+                Teléfono: {{ finca.telefono }}<br>
+                <a href="{% url 'editar_finca' finca.id %}">Editar</a>
+                <a href="{% url 'generar_pdf_finca' finca.id %}" class="action-link">Generar PDF</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="button-container">
+        <a href="{% url 'ingresar_finca' %}" class="back-btn">Agregar Nueva Finca</a>
+    </div>
+</div>
+{% endblock %}

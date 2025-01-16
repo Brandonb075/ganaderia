@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir Imagen</title>
+</head>
+<body>
+    <h1>Subir Imagen</h1>
+    <form action="/analizar/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="imagen">Selecciona una imagen:</label>
+        <input type="file" id="imagen" name="imagen" required>
+        <button type="submit">Analizar Imagen</button>
+    </form>
+</body>
+</html>

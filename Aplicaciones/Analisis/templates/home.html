@@ -1,0 +1,18 @@
+{% extends 'plantilla.html' %}
+
+{% block title %}Página de Inicio{% endblock %}
+
+{% block content %}
+    <div class="result-container">
+        <h2>Bienvenido a la página de análisis de imágenes</h2>
+
+        <!-- Formulario para subir imagen -->
+        <form method="POST" enctype="multipart/form-data" action="{% url 'analizar_imagen' %}">
+            {% csrf_token %}
+            <label for="imagen">Seleccionar imagen:</label>
+            <input type="file" name="imagen" id="imagen" required>
+            <button type="submit">Subir Imagen</button>
+        </form>
+    </div>
+{% endblock %}
+

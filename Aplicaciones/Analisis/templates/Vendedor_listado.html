@@ -1,0 +1,23 @@
+{% extends 'plantilla.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Listado de Vendedores</h2>
+    <ul>
+        {% for vendedor in vendedores %}
+            <li>
+                <strong>{{ vendedor.nombre }}</strong><br>
+                DNI: {{ vendedor.dni }}<br>
+                Teléfono: {{ vendedor.telefono }}<br>
+                Correo: {{ vendedor.correo }}<br>
+                Finca: {{ vendedor.finca.nombre }}<br>
+                <a href="{% url 'editar_vendedor' vendedor.id %}">Editar</a>
+                <a href="{% url 'generar_pdf_vendedor' vendedor.id %}" class="action-link">Generar PDF</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="button-container">
+        <a href="{% url 'ingresar_vendedor' %}" class="back-btn">Agregar Nuevo Vendedor</a>
+    </div>
+</div>
+{% endblock %}

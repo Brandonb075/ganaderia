@@ -1,0 +1,15 @@
+{% extends 'plantilla.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Ingreso de Vendedor</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar Vendedor</button>
+    </form>
+    <div class="button-container">
+        <a href="{% url 'listar_vendedores' %}" class="back-btn">Volver al listado de vendedores</a>
+    </div>
+</div>
+{% endblock %}

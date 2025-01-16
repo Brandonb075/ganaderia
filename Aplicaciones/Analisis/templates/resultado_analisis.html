@@ -1,0 +1,31 @@
+{% extends 'plantilla.html' %}
+
+{% block title %}Resultados del Análisis{% endblock %}
+
+{% block content %}
+    <div class="result-container">
+        <h2>Resultados del Análisis</h2>
+        
+        {% if error %}
+            <p><strong>Error:</strong> {{ error }}</p>
+        {% else %}
+            <p><strong>Similitud Promedio:</strong> {{ porcentaje_similitud }} 
+                <span style="font-style: italic; color: #666;">(0% significa que las imágenes son completamente diferentes, 100% significa que son idénticas)</span>
+            </p>
+
+            <div class="images-section">
+                <div class="image-container">
+                    <p><strong>Imagen Subida:</strong></p>
+                    <img src="{{ imagen_subida }}" alt="Imagen Subida">
+                </div>
+            
+                <div class="image-container">
+                    <p><strong>Imagen Muestra:</strong></p>
+                    <img src="{{ imagen_muestra }}" alt="Imagen de Referencia">
+                </div>
+            </div>
+        {% endif %}
+        
+        <a href="/" class="back-btn">Volver a la página de inicio</a>
+    </div>
+{% endblock %}
